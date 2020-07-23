@@ -2,6 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
+import models.Config;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class MySQLAdsDao implements Ads {
                 config.getPassword()
             );
         } catch (SQLException e) {
-            throw new RuntimeException("Error connecting to the database!", e);
+            throw new RuntimeException("Error", e);
         }
     }
 
@@ -73,5 +74,9 @@ public class MySQLAdsDao implements Ads {
             ads.add(extractAd(rs));
         }
         return ads;
+    }
+
+    public static void main(String[] args) {
+
     }
 }
